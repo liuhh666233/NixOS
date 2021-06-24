@@ -1,5 +1,5 @@
 {
-    description = "A demo project for NixOS and Nix and NixFlakes"
+    description = "A demo project for NixOS and Nix and NixFlakes";
     
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/21.05";
@@ -24,5 +24,7 @@
                   export PS1="$(echo -e '\uf3e2') {\[$(tput sgr0)\]\[\033[38;5;228m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]} (${name}) \\$ \[$(tput sgr0)\]"
                 '';
             };
+            defaultPackage."${system}" = pkgs.python3Packages.callPackage ./default.nix {};
+    
         };
 }
